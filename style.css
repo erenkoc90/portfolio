@@ -108,6 +108,10 @@ article div h4 {
   text-decoration: underline;
 }
 
+.under-construction {
+  font-style: italic;
+}
+
 /* ===== GRADIENT PARTS ===== */
 .gradient-bg {
   background: repeating-linear-gradient(
@@ -146,6 +150,9 @@ article div h4 {
 
 .between-projects2 {
   height: 10px;
+}
+.between-projects3 {
+  height: 55px;
 }
 
 /* ===== PROJECT IMAGES===== */
