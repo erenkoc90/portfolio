@@ -1,5 +1,11 @@
+/* ===== GENERAL ===== */
 * {
   box-sizing: border-box;
+}
+
+img,
+iframe {
+  max-width: 100%;
 }
 
 body {
@@ -8,13 +14,21 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 98%;
-
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 8px;
   background-color: #54e0f6;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* ===== HEADER ===== */
 header h1 {
-  text-align: justify;
+  text-align: left;
   font-size: x-large;
   background-color: aliceblue;
   color: black;
@@ -23,55 +37,24 @@ header h1 {
   font-weight: 700;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  margin-top: 10px;
-}
-
-article {
-  border: solid 2px black;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  margin: 10px;
-  text-align: justify;
-  font-size: 15pt;
-}
-
-article span {
-  font-weight: 700;
-  color: black;
-  padding: 2px;
-}
-article span a:hover {
-  font-weight: 700;
-  color: aliceblue;
-  background-color: black;
-}
-.article-container {
-  background-color: aliceblue;
-}
-
-article div {
-  padding: 8px;
-  margin: 5px;
-}
-
+/* ===== NAV & FOOTER ===== */
+nav,
 footer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  gap: 8px;
   width: 100%;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+nav {
+  margin-top: 10px;
+}
+
+footer {
+  margin-bottom: 10px;
 }
 
 .button-nav {
@@ -88,6 +71,44 @@ a {
   color: aliceblue;
 }
 
+/* ===== ARTICLE ===== */
+article {
+  border: solid 2px black;
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: left;
+  font-size: clamp(12pt, 2.5vw, 15pt);
+  overflow-wrap: anywhere;
+}
+
+article span {
+  font-weight: 700;
+  color: black;
+  padding: 2px;
+}
+
+article span a:hover {
+  font-weight: 700;
+  color: aliceblue;
+  background-color: black;
+}
+
+.article-container {
+  background-color: aliceblue;
+}
+
+.article-container > div {
+  padding: 8px;
+  margin: 5px 0;
+}
+
+article div h4 {
+  text-decoration: underline;
+}
+
+/* ===== GRADIENT PARTS ===== */
 .gradient-bg {
   background: repeating-linear-gradient(
     45deg,
@@ -96,9 +117,9 @@ a {
     #ffffff 4px,
     #ffffff 8px
   );
-  height: 100%; /* Tüm ekranı kaplaması için */
   width: 100%;
 }
+
 .gradient-bg2 {
   background: repeating-linear-gradient(
     -45deg,
@@ -107,41 +128,106 @@ a {
     #ffffff 4px,
     #ffffff 8px
   );
-  height: 100%; /* Tüm ekranı kaplaması için */
   width: 100%;
 }
 
-.project-images {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  flex-direction: row;
-  align-items: center;
-}
-
-.project-images img {
-  width: 400px;
-  height: 300px;
-  object-fit: contain;
-}
-
-article div h4 {
-  text-decoration: underline;
-}
-
-.between-projects {
-  background-color: aliceblue;
-  color: black;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  height: 30px;
-}
+.between-projects,
 .between-projects2 {
   background-color: aliceblue;
   color: black;
-  left: 0px;
-  right: 0px;
   width: 100%;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.between-projects {
+  height: 30px;
+}
+
+.between-projects2 {
   height: 10px;
+}
+
+/* ===== PROJECT IMAGES===== */
+.project-images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-images > div {
+  flex: 1 1 280px;
+  max-width: 400px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.project-images img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  display: block;
+}
+
+.project-images iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
+.project-images > div:has(iframe) {
+  flex-basis: 100%;
+  max-width: 560px;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablet*/
+@media (max-width: 768px) {
+  header h1 {
+    font-size: large;
+    padding: 5px 15px;
+  }
+
+  .button-nav {
+    font-size: 11pt;
+  }
+}
+
+/* Telefon */
+@media (max-width: 480px) {
+  body {
+    padding: 0 4px;
+  }
+
+  article {
+    padding: 6px;
+    border-width: 1px;
+  }
+
+  .project-images > div,
+  .project-images > div:has(iframe) {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  nav,
+  footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+/* Geniş ekran */
+@media (min-width: 1200px) {
+  article {
+    font-size: 16pt;
+  }
 }
