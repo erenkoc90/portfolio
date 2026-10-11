@@ -3,17 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>eren the koç</title>
+    <title>Bit.krshr | eren the koç</title>
     <link rel="stylesheet" href="style.css" />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com" />
-    <link rel="preconnect" href="https://gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -28,10 +24,232 @@
     </nav>
     <article>
       <div class="article-container">
-      <div><h3>Bit.krshr</h3>
-      <p>a DIY effect pedal on Arduino Nano</p></div>
-      
-        
+        <div>
+          <h3>Bit.krshr</h3>
+          <p>
+            a DIY effect pedal on an Arduino Nano-compatible board<br />(ELEGOO
+            Nano V3, ATmega328P)
+          </p>
+
+          <p>
+            A lo-fi bit crusher for electric guitar, built on a breadboard and
+            programmed in C++. <br />I started it to learn C/C++ with a project
+            I actually want to play.
+          </p>
+        </div>
+        <div
+          class="between-projects2 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div>
+          <h4>Demo and prototype</h4>
+          <div class="project-images">
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/9oWq79Zfspo"
+                title="Bit.krshr demo video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div>
+              <img
+                src="img/bitkrshr/bitkrshr2.jpeg"
+                alt="Bit.krshr prototype on a breadboard, photo 1"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <img
+                src="img/bitkrshr/bitkrshr1.jpeg"
+                alt="Bit.krshr prototype on a breadboard, photo 2"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="between-projects2 gradient-bg"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div>
+          <h4>What it does</h4>
+          <p>
+            The guitar signal is read by the Nano's analog-to-digital converter,
+            degraded in software, and sent back out as PWM. Two knobs shape the
+            sound:
+          </p>
+          <ul>
+            <li>
+              <strong>Bit depth</strong> (pin A1): from 8 bits down to 1 bit.
+              Fewer bits mean a rougher, more distorted signal.
+            </li>
+            <li>
+              <strong>Sample rate</strong> (pin A2): how many times per second
+              the signal is measured. Fewer measurements make the sound muffled
+              and metallic.
+            </li>
+          </ul>
+        </div>
+        <div
+          class="between-projects2 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div class="diagram">
+          <h4>Circuit diagram</h4>
+          <img src="img/bitkrshr/bitkrshr-diagram.png" />
+          <p class="caption">My hand-drawn circuit diagram, version 1.</p>
+        </div>
+        <div
+          class="between-projects2 gradient-bg"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div>
+          <h4>The same circuit as ASCII art</h4>
+          <p>
+            Redrawn with help of an AI-agent as plain text. Nets with the same
+            name, like +5V, GND and A0, are connected. The 10 µF capacitor has
+            its (+) side on the filter and its (-) side on the speaker jack.
+          </p>
+          <pre
+            class="ascii-art"
+            role="img"
+            aria-label="Text version of the circuit diagram. The signal path below describes the same circuit in words."
+          ><code>  Bit.krshr
+  DIY bit crusher effect pedal w/ Arduino Nano-compatible on breadboard
+  (Nano is powered over USB from the PC)
+
+
+  INPUT
+  -----
+                          +5V
+                           |
+                          [1M]
+                           |
+  GUITAR TIP ---[104]------+---------------&gt; A0
+                           |
+                          [1M]
+                           |
+                          GND
+
+  GUITAR SLEEVE ---------------------------&gt; GND
+
+
+  CONTROLS
+  --------
+     +5V                           +5V
+      |                             |
+   +--+--+                       +--+--+
+   | POT |----&gt; A1               | POT |----&gt; A2
+   |  1  |  (bit depth)          |  2  |  (sample rate)
+   +--+--+                       +--+--+
+      |                             |
+     GND                           GND
+
+
+  OUTPUT
+  ------
+  D3 ---[330]------+-----(+) 10uF (-)-----&gt; SPEAKER JACK TIP
+                   |
+                 [104]
+                   |
+                  GND
+
+  SPEAKER JACK SLEEVE ----------------------&gt; GND</code></pre>
+        </div>
+        <div
+          class="between-projects2 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div>
+          <h4>Signal path</h4>
+          <ol>
+            <li>
+              <strong>Input:</strong> the guitar tip goes through a 104 (100 nF)
+              capacitor. Two 1 MΩ resistors hold the signal at about 2.5 V, so
+              the Nano can read the negative half of the waveform.
+            </li>
+            <li>
+              <strong>Read:</strong> <code>analogRead(A0)</code> returns a
+              number from 0 to 1023. The code estimates the DC level and
+              subtracts it, which leaves only the audio.
+            </li>
+            <li>
+              <strong>Crush:</strong> a sample-and-hold lowers the sample rate,
+              and bit shifting lowers the bit depth.
+            </li>
+            <li>
+              <strong>Output:</strong> Timer2 generates fast PWM at 62.5 kHz on
+              pin D3. A 330 Ω resistor and a 104 capacitor smooth it, and a 10
+              µF capacitor blocks the DC before the speaker jack.
+            </li>
+          </ol>
+        </div>
+        <div
+          class="between-projects2 gradient-bg"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div>
+          <h4>Parts</h4>
+          <ul class="parts-list">
+            <li>Arduino Nano-compatible board (ELEGOO Nano V3, ATmega328P)</li>
+            <li>Breadboard and jumper wires</li>
+            <li>2 × 6.3 mm jack sockets (input and output)</li>
+            <li>2 × 1 MΩ resistors (bias)</li>
+            <li>1 × 330 Ω resistor (output filter)</li>
+            <li>2 × 104 ceramic capacitors (input coupling, output filter)</li>
+            <li>1 × 10 µF electrolytic capacitor (output DC blocking)</li>
+            <li>2 × trimpots (bit depth, sample rate)</li>
+          </ul>
+        </div>
+        <div
+          class="between-projects2 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+
+        <div>
+          <h4>What I learned</h4>
+          <ul>
+            <li>
+              C and C++ types have fixed sizes: on the Nano an
+              <code>int</code> is only 16 bits, and overflows fail silently.
+            </li>
+            <li>
+              Bitwise operators (<code>&amp;</code>, <code>|</code>,
+              <code>&lt;&lt;</code>, <code>&gt;&gt;</code>) and how to set
+              hardware registers with them.
+            </li>
+            <li>
+              The difference between DC and AC, and why a guitar signal needs a
+              bias before an ADC can read it.
+            </li>
+            <li>
+              Debugging hardware: floating pins, a reversed electrolytic
+              capacitor, and loose breadboard contacts.
+            </li>
+          </ul>
+        </div>
+        <div
+          class="between-projects2 gradient-bg"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div>
+          <h4>Next steps</h4>
+          <p>
+            Replace the trimpots with panel potentiometers, add a footswitch,
+            solder the circuit, and put it in a pedal enclosure. A second effect
+            on another chip is planned.
+          </p>
+        </div>
+        <div
+          class="between-projects3 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+      </div>
     </article>
     <footer>
       <div class="button-nav"><a href="index.html">HOME</a></div>

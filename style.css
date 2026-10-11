@@ -238,3 +238,68 @@ article div h4 {
     font-size: 16pt;
   }
 }
+
+/* ===== PROJECT PAGE: CODE, ASCII ART, DIAGRAM ===== */
+/* Paste above the MEDIA QUERIES section in style.css */
+
+pre {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: clamp(8pt, 2vw, 11pt);
+  line-height: 1.35;
+  background-color: white;
+  color: black;
+  border: solid 2px black;
+  padding: 10px;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto; /* scrolls inside the box on small screens */
+}
+
+pre code {
+  font-family: inherit;
+}
+
+article p code,
+article li code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  background-color: white;
+  border: solid 1px black;
+  padding: 0 4px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.project-tags li {
+  background-color: white;
+  border: solid 2px black;
+  font-weight: 700;
+  padding: 2px 8px;
+  font-size: 0.85em;
+}
+
+.diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border: solid 2px black;
+}
+
+.diagram .caption {
+  font-size: 0.85em;
+  margin: 6px 0 0;
+}
+
+@media (min-width: 700px) {
+  .parts-list {
+    columns: 2;
+    column-gap: 24px;
+  }
+}
