@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathGame | eren the koç</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="gradient-bg"><h1>eren the koç</h1></header>
+    <nav>
+      <div class="button-nav"><a href="index.html">HOME</a></div>
+      <div class="button-nav"><a href="projects.html">PROJECTS</a></div>
+      <div class="button-nav"><a href="aboutme.html">ABOUT ME</a></div>
+      <div class="button-nav"><a href="contact.html">CONTACT</a></div>
+      <div class="button-nav"><a href="imprint.html">IMPRINT</a></div>
+    </nav>
+    <article>
+      <div class="article-container">
+        <div>
+          <h3>MathGame</h3>
+          <p>a simple quiz-game with aritmetic questions to train my skills after Java classes</p>
+        </div>
+        <div
+          class="between-projects2 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+
+        <div id="what-game-does">
+          <h4>How does the game work?</h4>
+          <p>
+            Math Game is a fast-paced arithmetic quiz built with Java Swing.<br /><br />
+            You get a countdown and random questions, type your answer and check
+            it. Every correct answer adds 3 seconds, every wrong answer lowers
+            your score. When the time runs out, you win with a score of 6 or
+            more. <br /><br />
+            The game has a retro pixel look, custom buttons, and sound effects
+            and background music that I made myself.
+          </p>
+        </div>
+        <div id="project-explaination">
+          <div class="project-images">
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                src="https://youtu.be/SePEp5CcKe0"
+                title=""
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div>
+              <img
+                src="img/mathgame/mathgame1.png"
+                alt="Math Game screenshot 1"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <img
+                src="img/mathgame/mathgame2.png"
+                alt="Math Game screenshot 2"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <img
+                src="img/mathgame/mathgame3.png"
+                alt="Math Game screenshot 3"
+                loading="lazy"
+              />
+            </div>
+
+            <div>
+              <img
+                src="img/mathgame/mathgame5.png"
+                alt="Math Game screenshot 5"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <img
+                src="img/mathgame/mathgame6.png"
+                alt="Math Game screenshot 6"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="between-projects2 gradient-bg"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div id="what-i-learnt">
+          <h4>What have i learnt?</h4>
+          <ul>
+            <li>
+              Building a desktop app with Swing: <code>JFrame</code>,
+              <code>JPanel</code>, layouts and <code>CardLayout</code> for
+              switching screens
+            </li>
+            <li>
+              Event handling with listeners, lambdas and
+              <code>javax.swing.Timer</code> for the countdown
+            </li>
+            <li>
+              Custom graphics: my own <code>GameButton</code> and a
+              polygon-shaped question box using <code>paintComponent</code>
+            </li>
+            <li>Splitting a project into small classes, each with one job</li>
+            <li>
+              Playing sounds with <code>Clip</code> and loading a custom font
+              with <code>Font.createFont</code>
+            </li>
+            <li>
+              How absolute file paths break a project when the folder moves, and
+              how to export a runnable <code>.jar</code>
+            </li>
+            <li>
+              Creating my own music and sound effects and using them in a Java
+              game
+            </li>
+          </ul>
+        </div>
+        <div
+          class="between-projects2 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+        <div>
+          <h4>Known Issues</h4>
+          <ul>
+            <li>
+              <strong>Background music plays only once.</strong> It stops after
+              the track ends instead of looping. Looping needs just one extra
+              line (<code>clip.loop(Clip.LOOP_CONTINUOUSLY)</code>).
+            </li>
+            <li>
+              <strong>Questions can repeat.</strong> The next question is picked
+              randomly from the whole pool, so the same one can appear twice in
+              a row or again after pressing "Next Question". I wrote this part
+              before I learned how to remove items from a list and shuffle it
+              properly.
+            </li>
+            <li>
+              <strong>"Try again!" keeps the wrong color.</strong> After a
+              correct answer, the next "Try again!" text still shows in green.
+            </li>
+            <li>
+              <strong>The source code uses absolute file paths.</strong> The
+              sound and font files are loaded from folders on my own computer,
+              so the source code only finds them there. Loading them with
+              <code>getResource</code> would fix this.
+            </li>
+          </ul>
+        </div>
+        <div
+          class="between-projects2 gradient-bg"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+
+        <div>
+          <h4>Download</h4>
+          <p>
+            You can download the runnable <code>.jar</code> file of the game
+            here:
+            <a href="downloads/MathGame.jar" download><strong>MathGame.jar</a></strong></a>
+            <br>
+            <span style="font-size: 14px; font-weight: normal; font-style: italic; color: #555;">
+              Note that you need to have Java installed on your computer to run it. You can get the latest version of Java from the official website: <a href="https://www.java.com/en/download/" target="_blank">https://www.java.com/en/download/</a>
+            </span>
+          </p>
+        </div>
+        <div
+          class="between-projects3 gradient-bg2"
+          style="margin-left: 0px; margin-right: 0px"
+        ></div>
+      </div>
+    </article>
+    <footer>
+      <div class="button-nav"><a href="index.html">HOME</a></div>
+      <div class="button-nav"><a href="projects.html">PROJECTS</a></div>
+      <div class="button-nav"><a href="aboutme.html">ABOUT ME</a></div>
+      <div class="button-nav"><a href="contact.html">CONTACT</a></div>
+      <div class="button-nav"><a href="imprint.html">IMPRINT</a></div>
+    </footer>
+  </body>
+</html>
