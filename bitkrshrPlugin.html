@@ -86,44 +86,46 @@
 
 
         <div>
-          <h4>What I learned</h4>
-          <ul>
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati corrupti amet cum omnis, perspiciatis est repellendus consequuntur eius quidem!
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati corrupti amet cum omnis, perspiciatis est repellendus consequuntur eius quidem!
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati corrupti amet cum omnis, perspiciatis est repellendus consequuntur eius quidem!
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati corrupti amet cum omnis, perspiciatis est repellendus consequuntur eius quidem!
-            </li>
-          </ul>
+          <h4 style="text-decoration: underline;">What I learned</h4>
+          <h5>C++</h5>
+<ul>
+  <li><strong>Member initializer list:</strong> how a constructor sets up the base class and member variables (like <code>apvts</code>) before the constructor body runs.</li>
+  <li><strong><code>override</code>:</strong> how to replace a base-class method with my own version, and how the compiler helps me catch typos.</li>
+  <li><strong>Inheritance basics:</strong> my plug-in class extends <code>juce::AudioProcessor</code>, so I fill in the blanks of a ready-made template.</li>
+  <li><strong>References and pointers:</strong> why <code>AudioBuffer&lt;float&gt;&amp;</code> changes the original audio, and how a <code>float*</code> points to the samples of a channel.</li>
+</ul>
+<br>
+<h5 >JUCE</h5>
+<ul>
+  <li><strong>Processor and GUI are separate:</strong> the processor handles the audio and lives as long as the plug-in, while the editor is only a window that can open and close.</li>
+  <li><strong>Important methods:</strong> <code>prepareToPlay()</code>, <code>processBlock()</code>, <code>releaseResources()</code>, <code>createEditor()</code> and saving/loading the plug-in state.</li>
+  <li><strong>Important classes:</strong> <code>AudioProcessor</code>, <code>AudioBuffer</code>, <code>AudioProcessorValueTreeState</code> (APVTS) and the <code>AudioParameter</code> types.</li>
+  <li><strong>Parameters:</strong> how APVTS and attachments connect knobs to parameters safely.</li>
+  <li><strong>Custom GUI:</strong> colors, a custom <code>LookAndFeel</code> and an embedded pixel font (using <code>BinaryData</code>).</li>
+</ul>
+<br>
+<h5>Audio and DSP</h5>
+<ul>
+  <li><strong>Real-time audio:</strong> <code>processBlock()</code> runs on a separate audio thread, so it must stay fast and avoid things like memory allocation.</li>
+  <li><strong>From Arduino to plug-in:</strong> I rebuilt my Arduino bit crusher (bit reduction and sample-and-hold) as a plug-in, and learned how audio works as floating-point numbers between -1.0 and 1.0.</li>
+</ul>
+<br>
+<h5>Workflow</h5>
+<ul>
+  <li>Building a VST3 with Xcode and jumake, and testing it in Ableton Live.</li>
+</ul>
         </div>
-        <div
-          class="between-projects2 gradient-bg2"
-          style="margin-left: 0px; margin-right: 0px"
-        ></div>
-        <div>
-          <h4>Next steps</h4>
-          <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati corrupti amet cum omnis, perspiciatis est repellendus consequuntur eius quidem!
-          </p>
-        </div>
+       
         <div
           class="between-projects2 gradient-bg"
           style="margin-left: 0px; margin-right: 0px"
         ></div>
         <div>
-          <h4>Download</h4>
+          <h4 style="text-decoration: underline;">Download</h4>
           <p>
-            You can download the plugin for Mac and Windows here:
-            <a href="" ><strong>Lorem, ipsum.</a></strong></a>
-            <br>
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur labore dicta asperiores aut architecto iste aperiam aspernatur corrupti, expedita ducimus itaque explicabo exercitationem, unde, in laudantium saepe amet sit? Iste!
-            </span>
+            You can download the plugin soon from here:
+            <a href="" ><strong>LINK COMING SOON</a></strong></a>
+           
           </p>
         </div>
         <div
