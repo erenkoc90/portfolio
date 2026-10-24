@@ -106,6 +106,7 @@ article span a:hover {
 
 article div h4 {
   text-decoration: underline;
+  margin: 10px 0px;
 }
 
 .under-construction {
